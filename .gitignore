@@ -1,3 +1,6 @@
+# added 2 files by LS:
+ratings.csv
+wikipedia-movies.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

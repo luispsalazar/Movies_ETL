@@ -2,6 +2,21 @@
 
 ## "Module 8 Challenge"
 
+The purpose of this challenge is to create an automated pipeline that takes in new data, performs the appropriate transformations, and loads the data into existing tables.
+
+The coding is refactored to create one function, that takes in, the three files:
+
+* Wikipedia data
+* Kaggle metadata, and
+* MovieLens rating
+
+and with these information, the ETL process takes place by adding the data to a PostgreSQL database in two tables:
+
+* Movies, and
+* Ratings
+
+This is done using Python (Jupyter Notebook) and pgAdmin 4, and their capabilities to read, filter, sort, append, replace, drop, order, groupby, functions, regex, etc.
+
 
 ## Deliverable 1
 
@@ -9,7 +24,7 @@ ETL function written to read in the three data files.
 
 ![11](Images/11.png)
 
-The function converts the Wikipedia JSON file to a Pandas DataFrame, and the DataFrame is displayed in the ETL_function_test.ipynb file. (5 pt)
+The function converts the Wikipedia JSON file to a Pandas DataFrame, and the DataFrame is displayed in the ETL_function_test.ipynb file.
 
 ![12](Images/12.png)
 
@@ -79,41 +94,65 @@ The cleaned Wikipedia data is converted to a Pandas DataFrame, and the DataFrame
 
 ## Deliverable 3
 
-The extraction and transformation of the Kaggle metadata using the ETL function does the following:
-The Kaggle metadata is cleaned. (4 pt)
+The "Extraction and Transformation" of the Kaggle metadata, using the ETL function does the following:
 
+The Kaggle metadata is cleaned.
 
+![31](Images/31.png)
 
-The Wikipedia and Kaggle DataFrames are merged. (3 pt)
-The following is performed on the merged Wikipedia and Kaggle DataFrames to create the movies_df: (8 pt)
+The Wikipedia and Kaggle DataFrames are merged.
+
+![32](Images/32.png)
+
+The following is performed on the merged Wikipedia and Kaggle DataFrames to create the movies_df:
 
 * Unnecessary columns are dropped.
+
+![33](Images/33.png)
+
 * A function is used to fill in the missing Kaggle data.
+
+![34](Images/34.png)
+
 * The movies_df DataFrame is filtered to keep specific columns.
+
+![35](Images/35.png)
+
 * The movies_df DataFrame columns are renamed.
 
+![36](Images/36.png)
 
-The extraction and transformation of the MovieLens ratings data using the ETL function does the following:
+The "Extraction and Transformation" of the MovieLens ratings data using the ETL function does the following:
 
-* The ratings counts are cleaned. (3 pt)
-* The movies_df DataFrame is merged with the cleaned ratings DataFrame to create the * movies_with_ratings_df DataFrame. (4 pt)
-* The empty values in the movies_with_ratings_df DataFrame are filled with “0”. (3 pt)
+* The ratings counts are cleaned.
 
+![37](Images/37.png)
 
-The movies_with_ratings_df and the movies_df DataFrames are displayed in the ETL_clean_kaggle_data.ipynb file. (5 pt)
+* The movies_df DataFrame is merged with the cleaned ratings DataFrame to create the * movies_with_ratings_df DataFrame.
+
+![38](Images/38.png)
+
+* The empty values in the movies_with_ratings_df DataFrame are filled with “0”.
+
+![39](Images/39.png)
+
+The movies_with_ratings_df and the movies_df DataFrames are displayed in the ETL_clean_kaggle_data.ipynb file.
+
+![310](Images/310.png)
+
+![311](Images/311.png)
 
 
 ## Deliverable 4
 
-You will earn a perfect score for Deliverable 4 by completing all requirements below:
+The data from the movies_df DataFrame replaces the current data in the movies table in the SQL database, as determined by the movies_query.png.
 
-The data from the movies_df DataFrame replaces the current data in the movies table in the SQL database, as determined by the movies_query.png. (5 pt)
+![41](Images/movies_query.png)
 
+The data from the MovieLens rating CSV file is added to the ratings table in the SQL database, as determined by the ratings_query.png.
 
+![42](Images/ratings_query.png)
 
-The data from the MovieLens rating CSV file is added to the ratings table in the SQL database, as determined by the ratings_query.png. (5 pt)
+The elapsed time to add the data to the database is displayed in the ETL_create_database.ipynb file.
 
-
-
-The elapsed time to add the data to the database is displayed in the ETL_create_database.ipynb file. (5 pt)
-
+![43](Images/43.png)
